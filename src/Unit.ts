@@ -2,12 +2,10 @@ export class Unit {
     _amount: number;
     _baseUnit: Unit | null;
     _baseUnitAmount: number;
-    readableName: string;
 
-    constructor(amount: number, baseUnit: Unit | null, readableName: string) {
+    constructor(amount: number, baseUnit: Unit | null) {
         this._amount = amount;
         this._baseUnit = baseUnit;
-        this.readableName = readableName;
         this._baseUnitAmount = this._calculateBaseUnitAmount();
     }
 
@@ -23,8 +21,8 @@ export class Unit {
     }
 }
 
-export const tsp = new Unit(1, null, "tsp");
-export const tbl = new Unit(3, tsp, "tbl");
-export const cup = new Unit(2, tbl, "cup");
-export const foo = new Unit(4, cup, "foo");
-export const bar = new Unit(2, foo, "bar");
+export const tsp = new Unit(1, null);
+export const tbl = new Unit(3, tsp);
+export const cup = new Unit(2, tbl);
+export const foo = new Unit(4, cup);
+export const bar = new Unit(2, foo);

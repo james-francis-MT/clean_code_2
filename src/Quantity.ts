@@ -28,15 +28,15 @@ export class Quantity {
             this._unit.getBaseAmount(this._amount) +
             other._unit.getBaseAmount(other._amount);
 
-        return new Quantity(totalBaseAmount, new Unit(1, null, "tsp"));
+        return new Quantity(totalBaseAmount, new Unit(1, null));
     }
 
-    toString(unit: Unit): string {
+    toString(unit: Unit, readableName: string): string {
         const amountInNewUnit = this._converter.convert(
             this._amount,
             this._unit,
             unit
         );
-        return `${amountInNewUnit} ${unit.readableName}`;
+        return `${amountInNewUnit} ${readableName}`;
     }
 }

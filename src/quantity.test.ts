@@ -79,16 +79,16 @@ test("3 tsp plus tbl is equal to cup", () => {
 test("can print name in different units", () => {
     const quantity1 = new Quantity(1, foo);
 
-    expect(quantity1.toString(tsp)).toBe("24 tsp");
-    expect(quantity1.toString(tbl)).toBe("8 tbl");
-    expect(quantity1.toString(cup)).toBe("4 cup");
-    expect(quantity1.toString(foo)).toBe("1 foo");
-    expect(quantity1.toString(bar)).toBe("0.5 bar");
+    expect(quantity1.toString(tsp, "tsp")).toBe("24 tsp");
+    expect(quantity1.toString(tbl, "tbl")).toBe("8 tbl");
+    expect(quantity1.toString(cup, "cup")).toBe("4 cup");
+    expect(quantity1.toString(foo, "foo")).toBe("1 foo");
+    expect(quantity1.toString(bar, "bar")).toBe("0.5 bar");
 });
 
 // test should live in converter.test.ts
 test("throws if invalid conversion", () => {
     const quantity1 = new Quantity(1, foo, new VolumeConverter());
 
-    expect(() => quantity1.toString(foo)).toThrow("invalid conversion");
+    expect(() => quantity1.toString(foo, "foo")).toThrow("invalid conversion");
 });
