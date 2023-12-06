@@ -32,11 +32,11 @@ export class Quantity {
     }
 
     toString(unit: Unit, readableName: string): string {
-        const amountInNewUnit = this._converter.convert(
+        const newQuantity = this._converter.convert(
             this._amount,
             this._unit,
             unit
         );
-        return `${amountInNewUnit} ${readableName}`;
+        return `${newQuantity._amount} ${readableName}`;
     }
 }
